@@ -14,7 +14,7 @@ async function connect() {
   await db.collection('complaints').createIndex({ chatId: 1 });
   await db.collection('complaints').createIndex({ status: 1 });
   await db.collection('complaints').createIndex({ ceoOriginalMsgId: 1 });
-  await db.collection('complaints').createIndex({ ceoAnalysisMsgId: 1 });
+  await db.collection('complaints').createIndex({ createdAt: 1 });
 
   console.log(`[mongo] connected to database "${config.mongodbDb}"`);
   return db;

@@ -1,7 +1,11 @@
 {
   "code": "uz",
   "name": "O'zbek",
-  "welcome": "Assalomu alaykum, hurmatli foydalanuvchi! 🙏\n\nSiz \"Soliq Oliy Maktabi\" murojaat nuqtasiga xush kelibsiz. Bu yerda sizni tashvishlantirayotgan muammo, taklif yoki fikringizni bemalol yozib qoldirishingiz mumkin. Murojaatingiz maxfiy (anonim) tartibda ko'rib chiqiladi va tegishli rahbariyatga yetkaziladi.\n\nIltimos, quyidagi mavzulardan birini tanlang:",
+  "welcome": "Assalomu alaykum, hurmatli foydalanuvchi! 🙏\n\nSiz \"Soliq Oliy Maktabi\" murojaat nuqtasiga xush kelibsiz. Bu yerda sizni tashvishlantirayotgan muammo, taklif yoki fikringizni bemalol yozib qoldirishingiz mumkin. Murojaatingiz tegishli rahbariyatga yetkaziladi va javob shu yerga yuboriladi.\n\nIltimos, quyidagi mavzulardan birini tanlang:",
+  "share_contact_prompt": "Davom etish uchun quyidagi tugma orqali telefon raqamingiz va ismingizni ulashing. Bu murojaatingiz kimdan kelganini bilish va sizga to'g'ridan-to'g'ri javob berish uchun kerak.",
+  "btn_share_contact": "📱 Kontaktni ulashish",
+  "contact_received": "✅ Rahmat! Ma'lumotlaringiz qabul qilindi.",
+  "contact_must_be_own": "⚠️ Iltimos, faqat o'zingizning kontaktingizni ulashing (boshqa birovning kontakt kartasi emas).",
   "topics_prompt": "Iltimos, mavzuni tanlang:",
   "topic_chosen": "Siz tanladingiz: {topic}\n\nEndi muammoingizni, taklifingizni yoki fikringizni imkon qadar batafsil yozib yuboring. Xabaringiz qanchalik aniq bo'lsa, biz shunchalik tez va samarali yordam bera olamiz.",
   "received": "✅ Murojaatingiz qabul qilindi.\n\nIltimos, kuting — u hozir ko'rib chiqilmoqda. Javob tayyor bo'lishi bilan sizga shu yerda yuboriladi.",

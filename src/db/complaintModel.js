@@ -1,18 +1,26 @@
 const { ObjectId } = require('mongodb');
 const { getDb } = require('./mongo');
 
-async function createComplaint({ chatId, topicKey, topicLabel, language, originalText, aiAnalysis }) {
+async function createComplaint({
+  chatId,
+  fullName,
+  phoneNumber,
+  topicKey,
+  topicLabel,
+  language,
+  originalText,
+}) {
   const db = getDb();
   const doc = {
     chatId,
+    fullName,
+    phoneNumber,
     topicKey,
     topicLabel,
     language,
     originalText,
-    aiAnalysis,
     status: 'pending',
     ceoOriginalMsgId: null,
-    ceoAnalysisMsgId: null,
     ceoAnswerText: null,
     createdAt: new Date(),
     answeredAt: null,
@@ -21,11 +29,11 @@ async function createComplaint({ chatId, topicKey, topicLabel, language, origina
   return { ...doc, _id: result.insertedId };
 }
 
-async function setCeoMessageIds(complaintId, { ceoOriginalMsgId, ceoAnalysisMsgId }) {
+async function setCeoMessageId(complaintId, ceoOriginalMsgId) {
   const db = getDb();
   await db.collection('complaints').updateOne(
     { _id: new ObjectId(complaintId) },
-    { $set: { ceoOriginalMsgId, ceoAnalysisMsgId } }
+    { $set: { ceoOriginalMsgId } }
   );
 }
 
@@ -33,13 +41,22 @@ async function findPendingByCeoMessageId(messageId) {
   const db = getDb();
   return db.collection('complaints').findOne({
     status: 'pending',
-    $or: [{ ceoOriginalMsgId: messageId }, { ceoAnalysisMsgId: messageId }],
+    ceoOriginalMsgId: messageId,
   });
 }
 
 async function findAllPending() {
   const db = getDb();
   return db.collection('complaints').find({ status: 'pending' }).sort({ createdAt: 1 }).toArray();
+}
+
+async function findByDateRange(from, to) {
+  const db = getDb();
+  return db
+    .collection('complaints')
+    .find({ createdAt: { $gte: from, $lte: to } })
+    .sort({ createdAt: 1 })
+    .toArray();
 }
 
 async function markAnswered(complaintId, ceoAnswerText) {
@@ -52,8 +69,9 @@ async function markAnswered(complaintId, ceoAnswerText) {
 
 module.exports = {
   createComplaint,
-  setCeoMessageIds,
+  setCeoMessageId,
   findPendingByCeoMessageId,
   findAllPending,
+  findByDateRange,
   markAnswered,
 };

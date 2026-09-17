@@ -5,8 +5,8 @@ const { ceoKeyboard } = require('../keyboards');
 
 const NOT_LINKED_WARNING =
   "⚠️ Bu xabar biror faol (javobsiz) murojaatga bog'liq emas.\n\n" +
-  "Iltimos, javob bermoqchi bo'lgan murojaat xabariga (asl matn yoki AI tahlili) " +
-  "to'g'ridan-to'g'ri REPLY qilib, so'ngra javobingizni yozing.";
+  "Iltimos, javob bermoqchi bo'lgan murojaat xabariga to'g'ridan-to'g'ri REPLY qilib, " +
+  "so'ngra javobingizni yozing.";
 
 async function handleCeoMessage(ctx) {
   const replyTo = ctx.message.reply_to_message;
@@ -52,7 +52,7 @@ async function handleCeoMessage(ctx) {
     }
 
     await complaintModel.markAnswered(complaint._id, answerText);
-    await ctx.reply('✅ Javobingiz fuqaroga anonim tarzda yuborildi. Rahmat!', ceoKeyboard());
+    await ctx.reply('✅ Javobingiz fuqaroga yuborildi. Rahmat!', ceoKeyboard());
   } catch (err) {
     console.error('[ceoReply] failed to deliver answer:', err);
     await ctx.reply(

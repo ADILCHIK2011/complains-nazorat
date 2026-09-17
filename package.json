@@ -1,7 +1,7 @@
 {
   "name": "soliq-oliy-maktabi-murojaat-bot",
   "version": "1.0.0",
-  "description": "Soliq Oliy Maktabi - Murojaat nuqtasi Telegram bot (AI-assisted complaint routing)",
+  "description": "Soliq Oliy Maktabi - Murojaat nuqtasi Telegram bot (complaint routing + Excel reports)",
   "main": "src/index.js",
   "type": "commonjs",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
     "groq-sdk": "^0.7.0",
     "mongodb": "^6.9.0",
     "telegraf": "^4.16.3"

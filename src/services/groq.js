@@ -1,51 +1,7 @@
-const fs = require('fs');
-const path = require('path');
 const Groq = require('groq-sdk');
 const config = require('../config');
 
-const SOUL_PROMPT = fs.readFileSync(path.join(__dirname, '../prompts/soul.md'), 'utf8');
-
 const client = new Groq({ apiKey: config.groqApiKey });
-
-/**
- * Analyzes a citizen's complaint/suggestion for the CEO using the NAZORAT AI
- * persona defined in prompts/soul.md. Always returns Uzbek (Latin) text.
- */
-async function analyzeComplaint({ topicLabel, language, text }) {
-  const userContext = [
-    `Tanlangan mavzu: ${topicLabel}`,
-    `Fuqaro yozgan asl til kodi: ${language}`,
-    `Murojaat matni:`,
-    text,
-  ].join('\n');
-
-  try {
-    const completion = await client.chat.completions.create({
-      model: config.groqModel,
-      temperature: 0.3,
-      max_tokens: 900,
-      reasoning_effort: 'low',
-      messages: [
-        { role: 'system', content: SOUL_PROMPT },
-        { role: 'user', content: userContext },
-      ],
-    });
-
-    const analysis = completion.choices?.[0]?.message?.content?.trim();
-    if (!analysis) throw new Error('Empty response from Groq');
-    return analysis;
-  } catch (err) {
-    console.error('[groq] analysis failed:', err.message);
-    return (
-      "📂 Mavzu tasnifi: Aniqlanmadi (AI tahlili amalga oshmadi)\n" +
-      "⚠️ Muhimlik darajasi: Noma'lum — AI xizmatida texnik xatolik yuz berdi\n" +
-      "📝 Qisqacha mazmun: Quyida fuqaroning asl matni keltirilgan, uni qo'lda ko'rib chiqing.\n" +
-      "🔍 Tahlil: AI tahlil xizmati vaqtincha ishlamadi.\n" +
-      "💡 Tavsiya: Asl murojaat matnini shaxsan ko'rib chiqib, javob bering.\n" +
-      "🏷️ Belgilar: AI xatoligi"
-    );
-  }
-}
 
 const TRANSLATION_TARGETS = {
   uz: "o'zbek tili (lotin yozuvi)",
@@ -95,4 +51,4 @@ async function translateAnswer({ text, targetLanguage }) {
   }
 }
 
-module.exports = { analyzeComplaint, translateAnswer };
+module.exports = { translateAnswer };

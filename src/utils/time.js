@@ -12,4 +12,29 @@ function formatRelativeTime(date) {
   return `${days} kun oldin`;
 }
 
-module.exports = { formatRelativeTime };
+function startOfDay(date) {
+  const d = new Date(date);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+// Calendar-aligned ranges: "kunlik" = today so far, "haftalik" = the last 7
+// calendar days including today, "oylik" = this calendar month so far.
+function getDateRange(period) {
+  const now = new Date();
+
+  if (period === 'daily') {
+    return { from: startOfDay(now), to: now };
+  }
+  if (period === 'weekly') {
+    const from = startOfDay(now);
+    from.setDate(from.getDate() - 6);
+    return { from, to: now };
+  }
+  if (period === 'monthly') {
+    return { from: new Date(now.getFullYear(), now.getMonth(), 1), to: now };
+  }
+  throw new Error(`Unknown report period: ${period}`);
+}
+
+module.exports = { formatRelativeTime, getDateRange };

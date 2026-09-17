@@ -1,3 +1,4 @@
+const config = require('../../config');
 const complaintModel = require('../../db/complaintModel');
 const { sendComplaintToCeo } = require('../ceoNotify');
 const { ceoKeyboard } = require('../keyboards');
@@ -6,6 +7,8 @@ const { formatRelativeTime } = require('../../utils/time');
 const MAX_SHOWN = 20;
 
 async function handleNavbatCommand(ctx) {
+  if (ctx.chat.id !== config.ceoChatId) return;
+
   const pending = await complaintModel.findAllPending();
 
   if (pending.length === 0) {

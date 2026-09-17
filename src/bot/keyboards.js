@@ -21,11 +21,36 @@ function afterReceivedKeyboard(lang) {
   ]);
 }
 
+// One-time reply keyboard used to request the citizen's real phone number +
+// name via Telegram's native contact-share flow. Requesting it this way
+// (instead of asking the user to type it) means the phone number is
+// verified by Telegram itself, not self-reported.
+function contactRequestKeyboard(lang) {
+  return Markup.keyboard([[Markup.button.contactRequest(t(lang, 'btn_share_contact'))]])
+    .resize()
+    .oneTime();
+}
+
 // Persistent bottom keyboard shown in the CEO's chat only. Unlike an inline
 // button (which is tied to one specific message and can get buried), this
 // stays pinned below the text input for the whole chat until replaced.
 function ceoKeyboard() {
-  return Markup.keyboard([['/navbat']]).resize();
+  return Markup.keyboard([['/navbat', '📊 Hisobot']]).resize();
 }
 
-module.exports = { languageKeyboard, topicsKeyboard, afterReceivedKeyboard, ceoKeyboard };
+function reportPeriodKeyboard() {
+  return Markup.inlineKeyboard([
+    [Markup.button.callback('📅 Kunlik', 'report:daily')],
+    [Markup.button.callback('🗓 Haftalik', 'report:weekly')],
+    [Markup.button.callback('📆 Oylik', 'report:monthly')],
+  ]);
+}
+
+module.exports = {
+  languageKeyboard,
+  topicsKeyboard,
+  afterReceivedKeyboard,
+  contactRequestKeyboard,
+  ceoKeyboard,
+  reportPeriodKeyboard,
+};

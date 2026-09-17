@@ -1,0 +1,26 @@
+{
+  "code": "uz",
+  "name": "O'zbek",
+  "welcome": "Assalomu alaykum, hurmatli foydalanuvchi! 🙏\n\nSiz \"Soliq Oliy Maktabi\" murojaat nuqtasiga xush kelibsiz. Bu yerda sizni tashvishlantirayotgan muammo, taklif yoki fikringizni bemalol yozib qoldirishingiz mumkin. Murojaatingiz maxfiy (anonim) tartibda ko'rib chiqiladi va tegishli rahbariyatga yetkaziladi.\n\nIltimos, quyidagi mavzulardan birini tanlang:",
+  "topics_prompt": "Iltimos, mavzuni tanlang:",
+  "topic_chosen": "Siz tanladingiz: {topic}\n\nEndi muammoingizni, taklifingizni yoki fikringizni imkon qadar batafsil yozib yuboring. Xabaringiz qanchalik aniq bo'lsa, biz shunchalik tez va samarali yordam bera olamiz.",
+  "received": "✅ Murojaatingiz qabul qilindi.\n\nIltimos, kuting — u hozir ko'rib chiqilmoqda. Javob tayyor bo'lishi bilan sizga shu yerda yuboriladi.",
+  "answer_header": "📩 Sizning murojaatingizga javob keldi:",
+  "btn_change_language": "🌐 Tilni o'zgartirish",
+  "btn_new_complaint": "📋 Yangi murojaat yuborish",
+  "btn_back": "🔙 Orqaga",
+  "language_set": "✅ Til o'zbek tiliga o'rnatildi.",
+  "please_choose_topic_first": "Iltimos, avval mavzuni tanlang. Buning uchun /start buyrug'ini bosing.",
+  "generic_error": "Kechirasiz, xatolik yuz berdi. Iltimos, birozdan so'ng qaytadan urinib ko'ring.",
+  "empty_message": "Iltimos, murojaatingizni matn shaklida yozing.",
+  "rate_limited": "⏳ Juda ko'p murojaat yubordingiz. Iltimos, taxminan {minutes} daqiqadan so'ng qayta urinib ko'ring.",
+  "topics": {
+    "education": "📚 Ta'lim jarayoni bo'yicha",
+    "housing": "🏠 Turar-joy bo'yicha",
+    "qualification": "🎓 Malaka oshirish bo'yicha",
+    "catering": "🍽️ Umumiy ovqatlanish bo'yicha",
+    "sport": "⚽ Sport maskanlari bo'yicha",
+    "hemis": "💻 HEMIS tizimi bo'yicha",
+    "other": "📌 Boshqa holatlar"
+  }
+}

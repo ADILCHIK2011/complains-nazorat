@@ -1,0 +1,26 @@
+{
+  "code": "en",
+  "name": "English",
+  "welcome": "Hello, dear user! 🙏\n\nWelcome to the \"Soliq Oliy Maktabi\" complaints and feedback point. Here you can freely share any problem, suggestion, or opinion that concerns you. Your message will be reviewed confidentially (anonymously) and forwarded to the relevant management.\n\nPlease choose one of the topics below:",
+  "topics_prompt": "Please choose a topic:",
+  "topic_chosen": "You selected: {topic}\n\nNow please describe your problem, suggestion, or opinion in as much detail as possible. The more precise your message, the faster and more effectively we can help.",
+  "received": "✅ Your message has been received.\n\nPlease wait a moment while it is being reviewed. As soon as a response is ready, it will be sent to you here.",
+  "answer_header": "📩 You have received a response to your message:",
+  "btn_change_language": "🌐 Change language",
+  "btn_new_complaint": "📋 Send a new message",
+  "btn_back": "🔙 Back",
+  "language_set": "✅ Language set to English.",
+  "please_choose_topic_first": "Please choose a topic first. Press /start.",
+  "generic_error": "Sorry, an error occurred. Please try again shortly.",
+  "empty_message": "Please write your message as text.",
+  "rate_limited": "⏳ You've sent too many messages. Please try again in about {minutes} min.",
+  "topics": {
+    "education": "📚 Educational process",
+    "housing": "🏠 Housing / dormitory",
+    "qualification": "🎓 Professional development",
+    "catering": "🍽️ Catering / food services",
+    "sport": "⚽ Sports facilities",
+    "hemis": "💻 HEMIS system",
+    "other": "📌 Other matters"
+  }
+}
